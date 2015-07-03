@@ -11,10 +11,11 @@ df_cart <- f_cluster_Cart("06.2015")
 shinyUI(pageWithSidebar(
     headerPanel('Análise de cluster de carteira de cartões'),
     sidebarPanel(
-        selectInput('xcol', 'Variável X', names(df_cart)),
-        selectInput('ycol', 'variável Y', names(df_cart),
+        selectInput('xcol', 'Variável X', names(df_cart),
                     selected=names(df_cart)[[2]]),
-        numericInput('clusters', 'Cluster count', 3,
+        selectInput('ycol', 'Variável Y', names(df_cart),
+                    selected=names(df_cart)[[4]]),
+        numericInput('clusters', 'Contagem de Agrupamentos', 3,
                      min = 1, max = 9)
     ),
     mainPanel(
